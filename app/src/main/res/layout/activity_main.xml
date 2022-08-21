@@ -1,0 +1,245 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
+    android:padding="@dimen/box_inset_layout_padding"
+    tools:context=".MainActivity"
+    tools:deviceIds="wear">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/inner_frame_layout_padding"
+        app:boxedEdges="all">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/startLogLayout">
+
+            <Button
+                android:id="@+id/button_start_stop"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10sp"
+                android:layout_gravity="center"
+                android:background="#FFFFFF"
+                android:fontFamily="roboto_black"
+                android:onClick="startStopRecording"
+                android:text="@string/start_title"
+                android:textAlignment="center"
+                android:textColor="#3D5AFE"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Sensors Data Logger"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textColorHint="#00000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/button_start_stop"/>
+
+            <TextView
+                android:id="@+id/label_interface_time"
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:elegantTextHeight="false"
+                android:fontFamily="roboto_black"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/appName"
+                tools:text="@string/ready_title" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10sp"
+            android:id="@+id/firstLayout"
+            android:layout_below="@+id/startLogLayout">
+            <TextView
+                android:id="@+id/accelerometerTitle"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Accelerometer Data (m/s-2)"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/label_accel_X"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Ax:"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/accelerometerTitle" />
+            <TextView
+                android:id="@+id/label_accel_Y"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Ay:"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/label_accel_X" />
+            <TextView
+                android:id="@+id/label_accel_Z"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Az:"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/label_accel_Y" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10sp"
+            android:id="@+id/secondLayout"
+            android:layout_below="@+id/firstLayout">
+            <TextView
+                android:id="@+id/gyroscopeTitle"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Gyroscope Data (rad/s)"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_below="@+id/label_accel_Z" />
+            <TextView
+                android:id="@+id/label_gyro_X"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="-9.875"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/gyroscopeTitle" />
+            <TextView
+                android:id="@+id/label_gyro_Y"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="-9.875"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/label_gyro_X" />
+            <TextView
+                android:id="@+id/label_gyro_Z"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="-9.875"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/label_gyro_Y" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10sp"
+            android:id="@+id/thirdLayout"
+            android:layout_below="@+id/secondLayout">
+            <TextView
+                android:id="@+id/MagneticFieldTitle"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Magnetic Field Data (microtesla)"
+                android:textAlignment="textStart"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:layout_below="@+id/label_gyro_Z" />
+            <TextView
+                android:id="@+id/label_magnet_X"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Mx:"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/MagneticFieldTitle" />
+            <TextView
+                android:id="@+id/label_magnet_Y"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Mx:"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/label_magnet_X" />
+            <TextView
+                android:id="@+id/label_magnet_Z"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:fontFamily="roboto"
+                android:text="Mx:"
+                android:textAlignment="textEnd"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:layout_below="@+id/label_magnet_Y" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginTop="10sp"
+            android:layout_below="@+id/forthLayout"
+            android:id="@+id/MlLayout">
+
+            <TextView
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pred"
+                android:textColor="@android:color/white"
+                android:text="Prediction"/>
+
+            <ScrollView
+                android:layout_width="100sp"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/ml"
+                    android:layout_width="100sp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/white"
+                    android:maxLines="5"
+                    android:inputType="textMultiLine"
+                    android:scrollbars="vertical" />
+            </ScrollView>
+
+        </LinearLayout>
+
+    </TableLayout>
+</ScrollView>

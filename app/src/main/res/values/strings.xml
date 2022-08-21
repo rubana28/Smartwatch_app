@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">sensor_data_logger2</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="alert_title">Alert</string>
+    <string name="start_title">Start</string>
+    <string name="ready_title">Ready</string>
+    <string name="detach_title">Detach</string>
+    <string name="stop_title">Stop</string>
+    <string name="write_file">File</string>
+</resources>
